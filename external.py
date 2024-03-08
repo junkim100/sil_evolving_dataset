@@ -13,19 +13,25 @@ current_dates = [current_date.strftime(fmt) for fmt in date_formats]
 current_date_strs = set(tuple(date.split(' ')[0:3]) for date in current_dates if len(date.split(' ')) >= 3)
 
 # topic_list = ['tech', 'news', 'business', 'science', 'finance', 'food', 'politics', 'economics', 'travel', 'entertainment', 'music', 'sport', 'world']
-# topic_list = ['tech', 'news', 'business', 'science', 'travel', 'entertainment', 'music', 'sport']
-topic_list = ['news']
+topic_list = ['tech', 'news', 'business', 'science', 'travel', 'entertainment', 'music', 'sport']
+# topic_list = ['business']
 
 articles = []
 
 # topic loop
+element_count = 0
+element_limit = 10
+
 for topic in topic_list:
+    exit_flag = False
     print("TOPIC: ", topic, "//////////////////////////////////////////////////////////////////")
     # source loop
     for source_idx in range(len(urls(topic=topic))):
-    # for source_idx in range(7, 10):
+    # for source_idx in range(10):
+        if exit_flag: break
         # news loop
         for news in (Newscatcher(urls(topic=topic)[source_idx], topic=topic).get_news() or {}).get('articles', []):
+            if exit_flag: break
             if 'published' not in news: continue
             if 'content' not in news: continue
 
@@ -39,16 +45,20 @@ for topic in topic_list:
             # Now, content_values will contain all the 'value' entries from the dictionaries
             # If you just want to print them, you can do:
             for content in content_values:
+                if exit_flag: break
                 if content == '': continue
 
                 # Check if the news date is in the current date set
-                if news_date_parts in current_date_strs:
+                if news_date_parts in current_date_strs and len(content) > 500:
                     article_dict = {
                         "topic": topic,
                         "link": news['link'],
-                        "summary": content
+                        "content": content
                     }
                     articles.append(article_dict)
+                    element_count += 1
+                    if element_count >= element_limit:
+                        exit_flag = True
 
 filename = f"{datetime.now().strftime('%Y-%m-%d')}.json"
 
