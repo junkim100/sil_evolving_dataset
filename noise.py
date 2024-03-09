@@ -11,9 +11,7 @@ nltk.download('wordnet')
 current_date = datetime.now(timezone(timedelta(hours=-7)))
 
 def inject_syntactical_noise(text, noise_level=0.15):
-    """
-    Introduce syntactical noise by randomly shuffling sentence structures.
-    """
+    """Introduce syntactical noise by randomly shuffling sentence structures"""
     sentences = nltk.sent_tokenize(text)
     num_sentences_to_change = int(len(sentences) * noise_level)
     changed_indices = random.sample(range(len(sentences)), num_sentences_to_change)
@@ -26,7 +24,7 @@ def inject_syntactical_noise(text, noise_level=0.15):
     return ' '.join(sentences)
 
 def inject_semantic_noise(text, noise_level=0.15):
-    """Introduce semantic noise by replacing words with their synonyms."""
+    """Introduce semantic noise by replacing words with their synonyms"""
     words = text.split()
     num_words_to_change = int(len(words) * noise_level)
     changed_indices = random.sample(range(len(words)), num_words_to_change)
@@ -44,7 +42,7 @@ def inject_semantic_noise(text, noise_level=0.15):
     return ' '.join(words)
 
 def inject_typographical_noise(text, noise_level=0.15):
-    """Introduce typographical errors into the text."""
+    """Introduce typographical errors into the text"""
     characters = list(text)
     num_chars_to_change = int(len(characters) * noise_level)
 
@@ -55,6 +53,7 @@ def inject_typographical_noise(text, noise_level=0.15):
     return ''.join(characters)
 
 def noise_injection(injection_ratio=0.5, noise_level=0.15):
+    """Inject noise into the original datasets"""
     instruction_type = ["ARC", "HellaSwag", "MMLU", "TruthfulQA", "WinoGrande", "GSM8k"]
 
     for instruction in instruction_type:
@@ -89,5 +88,5 @@ def noise_injection(injection_ratio=0.5, noise_level=0.15):
 
         # Save the articles with injected noise
         save_dir = f"data/{current_date.strftime('%Y-%m-%d')}/dataset/noised/noised_{instruction}.json"
-        with open(save_dir, 'w', encoding='utf-8') as f: 
-            json.dump(articles, f, ensure_ascii=False, indent=4)
+        with open(save_dir, 'w', encoding='utf-8') as f: json.dump(articles, f, ensure_ascii=False, indent=4)
+        print(f"Noised {instruction} dataset saved at {save_dir}")

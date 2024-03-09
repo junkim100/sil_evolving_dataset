@@ -25,6 +25,7 @@ def format_date(date):
     return date_formatted
 
 def clean_html_content(text):
+    """Clean the HTML content of the articles"""
     # Remove HTML tags
     text = re.sub(re.compile('<.*?>'), '', text)
     # Decode HTML entities
@@ -67,9 +68,7 @@ def retrieve_external(date_formatted, topic_list, source_limit, content_len_min,
                         }
                         articles.append(article_dict)
                         element_count += 1
-                        print("element_count: ", element_count)
-                        if element_count >= element_limit:
-                            exit_flag = True
+                        if element_count >= element_limit: exit_flag = True
 
     # Convert HTML entities to their corresponding characters
     for article in articles: article['content'] = clean_html_content(article['content'])
