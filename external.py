@@ -80,7 +80,7 @@ def external_generation(retrieve=True, generate=True, current_date=None, topic_l
     if not retrieve and not generate: raise ValueError("At least one of 'retrieve' or 'generate' must be True")
 
     # Get the current date
-    if current_date is None: current_date = datetime.now(timezone(timedelta(hours=-7)))
+    if current_date is None: current_date = datetime.now(timezone(timedelta(hours=-16)))
     date_formatted = format_date(current_date)
 
     if retrieve:
