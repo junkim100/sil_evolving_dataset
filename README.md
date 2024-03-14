@@ -1,6 +1,11 @@
 # Self-Improving-Leaderboard (SIL): A Call for Real-World Centric Natural Language Processing Leaderboards
 The Self-Improving Leaderboard (SIL) represents a pioneering step in the realm of Natural Language Processing (NLP) leaderboards, focusing on real-world applicability and continuous model improvement. This repository is dedicated to the Evolving Dataset component of SIL, which ensures that the leaderboard is powered by data that reflects the current and dynamic nature of language.
 
+## Requirements
+This project is tested and developed with Python 3.10. It is not compatible with Python 2.
+
+Please ensure you are using Python 3.10 to avoid any compatibility issues.
+
 ## Installation
 To get started with the SIL Evolving Dataset, you'll need to set up your environment properly. Here's how you can install the required packages:
 
