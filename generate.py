@@ -13,7 +13,7 @@ def create_folders(current_date=None):
     os.makedirs(f"data/{current_date.strftime('%Y-%m-%d')}/dataset/filtered/", exist_ok=True)
 
 if __name__ == "__main__":
-    # create_folders()
-    # external_generation()
-    # noise_injection()
+    create_folders()
+    external_generation()
+    noise_injection()
     filter_data(f"data/{datetime.now(timezone(timedelta(hours=-16))).strftime('%Y-%m-%d')}/dataset/")

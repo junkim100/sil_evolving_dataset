@@ -174,14 +174,14 @@ def filter_data(path):
                     data = json.load(f)
                     dataset = os.path.splitext(os.path.basename(f.name))[0][7:]
                     if dataset == "ARC":
-                        filtered_data = filter_arc(data, filtered_path)
+                        filter_arc(data, filtered_path)
                     elif dataset == "TruthfulQA":
-                        filtered_data = filter_truthfulqa(data, filtered_path)
+                        filter_truthfulqa(data, filtered_path)
                     elif dataset == "GSM8k":
-                        filtered_data = filter_gsm8k(data, filtered_path)
+                        filter_gsm8k(data, filtered_path)
                     elif dataset == "HellaSwag":
-                        filtered_data = filter_hellaswag(data, filtered_path)
+                        filter_hellaswag(data, filtered_path)
                     elif dataset == "MMLU":
-                        filtered_data = filter_mmlu(data, filtered_path)
+                        filter_mmlu(data, filtered_path)
                     elif dataset == "WinoGrande":
-                        filtered_data = filter_winogrande(data, filtered_path)
+                        filter_winogrande(data, filtered_path)
