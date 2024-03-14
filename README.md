@@ -13,10 +13,9 @@ Please ensure you are using Python 3.10 to avoid any compatibility issues.
 Clone the SIL evolving dataset repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/sil_evolving_dataset.git
+git clone https://github.com/anonymous/sil_evolving_dataset.git
 cd sil_evolving_dataset
 ```
-Replace https://github.com/anonymous/sil_evolving_dataset.git with the actual URL of your repository.
 
 ### Step 2: Create and Activate a Conda Environment
 
