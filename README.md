@@ -16,7 +16,7 @@ Clone the SIL evolving dataset repository to your local machine:
 git clone https://github.com/yourusername/sil_evolving_dataset.git
 cd sil_evolving_dataset
 ```
-Replace https://github.com/yourusername/sil_evolving_dataset.git with the actual URL of your repository.
+Replace https://github.com/anonymous/sil_evolving_dataset.git with the actual URL of your repository.
 
 ### Step 2: Create and Activate a Conda Environment
 
@@ -24,6 +24,8 @@ Create a new Conda environment and activate it:
 
 ```bash
 conda create --name sil_env python=3.10
+```
+```bash
 conda activate sil_env
 ```
 
@@ -44,6 +46,10 @@ pip install --upgrade feedparser==6.0.11
 This sequence ensures that all dependencies are correctly resolved and installed.
 
 ## Usage
+### OpenAI API
+You must create an .env file with the OpenAI API Key
+
+### Running the Generator
 Once you have everything installed, you can start generating the evolving dataset using the provided scripts:
 
 ```bash
